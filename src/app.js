@@ -21,9 +21,6 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-let apiKey = "1510dfa5c43bdbc339577a5b29c2fc63";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=${apiKey}&units=metric`;
-
 function showTemperature(response) {
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(response.data.main.temp);
@@ -42,6 +39,17 @@ function showTemperature(response) {
 
   let date = document.querySelector("#date");
   date.innerHTML = formatDate(response.data.dt * 1000);
+
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
+
+let city = "Madrid";
+let apiKey = "1510dfa5c43bdbc339577a5b29c2fc63";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(`${apiUrl}`).then(showTemperature);
