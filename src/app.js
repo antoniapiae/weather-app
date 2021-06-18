@@ -22,8 +22,10 @@ function formatDate(timestamp) {
 }
 
 function showTemperature(response) {
+  celsiusTemperature = response.data.main.temp;
+
   let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  temperature.innerHTML = Math.round(celsiusTemperature);
 
   let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
@@ -61,5 +63,32 @@ function handleSubmit(event) {
   search(cityInput.value);
 }
 
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheit);
+
+function showCelsius(event) {
+  event.preventDefault();
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", showCelsius);
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celsiusTemperature = null;
+
+search("Stockholm");
