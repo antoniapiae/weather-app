@@ -1,6 +1,6 @@
 h1 {
-  font-size: 24px;
-  font-weight: 100;
+  font-size: 35px;
+  font-weight: bold;
   line-height: 30px;
 }
 
@@ -11,7 +11,7 @@ ul {
 
 li {
   list-style: none;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 100;
 }
 
@@ -31,7 +31,8 @@ a {
 .weather-app {
   font-family: "Abel", sans-serif;
   padding: 35px;
-  border: 1px solid;
+  border: 1px transparent;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   background: linear-gradient(
     108.1deg,
@@ -41,7 +42,12 @@ a {
 }
 
 .overview {
-  margin-bottom: 18px;
+  margin: 30px;
+  text-align: center;
+}
+
+.current-temperature {
+  text-align: center;
 }
 
 .weather-temperature img {
@@ -70,4 +76,12 @@ a {
 
 .weather-temperature .active:hover {
   text-decoration: none;
+}
+
+.weather-today {
+  text-align: center;
+}
+
+.weather-week {
+  text-align: center;
 }

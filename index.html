@@ -23,26 +23,6 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
-          <form id="search-form" class="mb-3">
-            <div class="row">
-              <div class="col-9">
-                <input
-                  type="search"
-                  placeholder="Type a city..."
-                  class="form-control"
-                  id="city-input"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="col-3">
-                <input
-                  type="submit"
-                  value="Search"
-                  class="btn btn-primary w-100"
-                />
-              </div>
-            </div>
-          </form>
           <div class="overview">
             <h1 id="city"></h1>
             <ul>
@@ -50,7 +30,7 @@
               <li id="condition"></li>
             </ul>
           </div>
-          <div class="row">
+          <div class="row current-temperature">
             <div class="col-6">
               <div class="clearfix weather-temperature">
                 <img src="" alt="Clear" id="icon" class="float-left" />
@@ -69,14 +49,35 @@
               </ul>
             </div>
           </div>
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Type a city..."
+                  class="form-control"
+                  id="city-input"
+                  autofocus="on"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-dark w-100"
+                />
+              </div>
+            </div>
+          </form>
           <hr />
-          <div class="row">
+          <div class="row weather-today">
             <div class="col-4">06:00</div>
             <div class="col-4">12:00</div>
             <div class="col-4">18:00</div>
           </div>
           <hr />
-          <div class="row">
+          <div class="row weather-week">
             <div class="col-2">Tomorrow</div>
             <div class="col-2">Thursday</div>
             <div class="col-2">Friday</div>
