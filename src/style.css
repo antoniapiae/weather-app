@@ -82,6 +82,22 @@ a {
   text-align: center;
 }
 
-.weather-week {
+.weather-forecast {
   text-align: center;
+}
+
+.weather-forecast {
+  text-align: center;
+}
+
+.weather-forecast-date {
+  font-size: 18px;
+}
+
+.weather-forecast-temperature {
+  font-size: 15px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.6;
 }
