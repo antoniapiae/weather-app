@@ -21,7 +21,8 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function showForecast() {
+function showForecast(response) {
+  console.log(response.data.daily);
   let forecast = document.querySelector("#forecast");
   let days = [
     "Tomorrow",
@@ -54,6 +55,13 @@ function showForecast() {
   forecast.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "1510dfa5c43bdbc339577a5b29c2fc63";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
 
@@ -81,6 +89,8 @@ function showTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -123,7 +133,5 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let celsiusTemperature = null;
-
-showForecast();
 
 search("Stockholm");
