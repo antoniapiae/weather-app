@@ -21,6 +21,39 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function showForecast() {
+  let forecast = document.querySelector("#forecast");
+  let days = [
+    "Tomorrow",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Monday",
+  ];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="col-2">
+                <div class="weather-forecast-date">${day}</div>
+                <img
+                  src="https://openweathermap.org/img/wn/01d@2x.png"
+                  alt=""
+                  width="36"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max">19°</span>
+                  <span class="weather-forecast-temperature-min">14°</span>
+                </div>
+              </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
 
@@ -90,5 +123,7 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let celsiusTemperature = null;
+
+showForecast();
 
 search("Stockholm");
