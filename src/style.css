@@ -69,10 +69,6 @@ a {
   top: -50px;
 }
 
-.weather-today {
-  text-align: center;
-}
-
 .weather-week:hover {
   background: linear-gradient(
     108.1deg,
